@@ -80,10 +80,6 @@ GROUPBY UserId
 
 We have WeightedBadge, User, use_upvote, we want to generate the allScore table.
 
-| Tag  | OwnerUserId | AllScore |
-| ---- | ----------- | -------- |
-|      |             |          |
-
 ```sql
 SELECT tbl2.UserId, (tbl2.BadgeScore + tbl2.Reputation + tbl2.upvtes) AS AllScore
 FROM (weightBadge w JOIN Users u ON w, UserId = u.Id) AS tbl1 JOIN BBB b ON tbl1.UserId = b.OwnerUserId AS tbl2
