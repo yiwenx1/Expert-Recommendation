@@ -1,0 +1,33 @@
+<html>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    <head>
+      {% if title %}
+      <title>{{ title }} - Microblog</title>
+      {% else %}
+      <title>Welcome to Microblog</title>
+      {% endif %}
+    </head>
+    <body>
+
+	<ul class="nav nav-pills nav-fill">
+	  <li class="nav-item">
+	    <a class="nav-link active" href="/home">Stack Overflow</a>
+	  </li>
+	  <li class="nav-item">
+	    <a class="nav-link" href="/home">Home</a>
+	  </li>
+	  <li class="nav-item">
+	    <a class="nav-link" href="/new_question">Ask Question</a>
+	  </li>
+	  <li class="nav-item">
+	    <a class="nav-link" href="/top_experts">Top Experts</a>
+	  </li>
+	</ul>
+
+        {% block content %}{% endblock %}
+
+    </body>
+</html>
