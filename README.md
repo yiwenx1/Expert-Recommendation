@@ -29,7 +29,28 @@ export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 # use echo $JAVA_HOME to chec
 export PATH=$PATH:$JAVA_HOME/bin # echo $PATH
 ```
 
+### Cassandra
+
+
+
+### Flask
+
+```
+sudo apt update
+sudo apt install python3-pip
+pip3 install flask
+sudo apt install python3-flask
+
+export FLASK_APP=xxx.py
+flask run
+
+pip3 install flask-wtf
+```
+
+
+
 ## Data
+
 data source: [Stack Enchange Data Dump](https://archive.org/details/stackexchange)
 
 We could use ```wget``` to download the data from web to our instance. We then need to unzip the file on EC2 using ```p7zip-full```.
