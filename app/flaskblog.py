@@ -7,17 +7,14 @@ import uuid
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'you-will-never-guess'
 
-"""
 app.config['CASSANDRA_HOSTS'] = ['10.0.0.12']
 app.config['CASSANDRA_KEYSPACE'] = "cqlengine"
 db = CQLAlchemy(app)
-"""
-"""
+
 class Score(db.Model):
-    tag = db.columns.Text()
-    user_id = db.columns.UUID(default=uuid.uuid4)
+    tag = db.columns.Text(primary_key=True)
+    user_id = db.columns.UUID(primary_key=True, default=uuid.uuid4)
     all_score = db.columns.Integer()
-"""
 
 experts = [
     {
@@ -49,8 +46,8 @@ def home():
 def ask_question():
     form = SubmissionForm()
     if form.validate_on_submit():
-        flash('question has been submitted successfully!')
-        return redirect('/experts')
+        flash('Your question "{}" has been submitted successfully!'.format(form.title.data))
+        return redirect('/experts_recommendation')
     return render_template('new_question.html', title='New Question', form=form)
 
 @app.route("/experts_recommendation")
